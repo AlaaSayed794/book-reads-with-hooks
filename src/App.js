@@ -5,17 +5,20 @@ import SearchPage from "./components/SearchPage";
 import Home from "./components/Home";
 
 function App() {
-  //const [showSearchPage, setShowSearchpage] = useState(false);
+  const [books, setBooks] = useState([]);
 
+  const moveBook = () => {
+    console.log("moved")
+  }
   return (
     <div className="app">
       <div>
         <Routes>
           <Route path='/search' element={
-            <SearchPage />
+            <SearchPage moveBook={moveBook} books={books} />
           } />
           <Route exact path='/' element={
-            <Home />
+            <Home moveBook={moveBook} books={books} />
           } />
         </Routes>
       </div>
