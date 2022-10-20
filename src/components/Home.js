@@ -34,7 +34,7 @@ export default function Home({ books, moveBook }) {
                         <div className="bookshelf-books">
                             <ol className="books-grid">
                                 {
-                                    getBooks("currentlyReading")
+                                    getBooks("wantToRead")
                                 }
                             </ol>
                         </div>
