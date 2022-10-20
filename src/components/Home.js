@@ -51,8 +51,8 @@ export default function Home({ books, moveBook }) {
                     </div>
                 </div>
             </div>
-            <div >
-                <Link className="open-search" to="/search">Add a book</Link>
+            <div className="open-search">
+                <Link to="/search">Add a book</Link>
             </div>
         </div>
     )
