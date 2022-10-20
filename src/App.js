@@ -11,8 +11,34 @@ function App() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const moveBook = () => {
-    console.log("moved")
+  const moveBook = async (book, shelf) => {
+
+    setLoading(true)
+    await BooksAPI.update(book, shelf).then(() => {
+      var found = false
+      for (let i = 0; i < books.length; i++) {
+        if (books[i].id === book.id) {
+          found = true
+          break
+        }
+      }
+      if (found) {
+        setLoading(false)
+        setBooks(books.map(Book => {
+          if (Book.id === book.id) {
+            Book.shelf = shelf
+          }
+          return Book;
+        }))
+      }
+      else {
+        book.shelf = shelf
+        setLoading(false)
+        setLoading(false)
+        setBooks([books, book])
+      }
+
+    })
   }
 
   const getBooks = async () => {
