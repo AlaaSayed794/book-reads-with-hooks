@@ -14,8 +14,6 @@ export default function SearchPage({ books, moveBook }) {
         if (query) {
             try {
                 const apiBooks = await BooksAPI.search(query)
-                console.log(apiBooks)
-                console.log(query)
                 //assign shelves to books already in our shelves
                 let booksWithShelves = apiBooks.map(b => {
                     if (books.some(item => item.id === b.id)) {
